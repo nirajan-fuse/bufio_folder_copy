@@ -9,7 +9,8 @@ import (
 
 func main() {
 	source := "../afero"
-	destination := "." + "/" + filepath.Base(source)
+	destination := "./"
+	destination = filepath.Clean(destination + "/" + filepath.Base(source))
 
 	err := copyFolderWithBufio(source, destination, 2*1024*1024)
 	if err != nil {
